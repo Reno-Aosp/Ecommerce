@@ -1,5 +1,6 @@
 package com.ecommerce.Cart.DTO;
 
-public class AddToCartRequest {
-    
-}
+public record AddToCartRequest(
+        Long productId,
+        Integer quantity
+) {}
