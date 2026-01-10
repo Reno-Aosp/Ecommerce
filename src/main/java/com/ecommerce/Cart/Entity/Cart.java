@@ -7,7 +7,9 @@ import com.ecommerce.User.Entity.User;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "carts")
 public class Cart {

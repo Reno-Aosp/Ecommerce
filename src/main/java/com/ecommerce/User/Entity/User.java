@@ -2,7 +2,9 @@ package com.ecommerce.User.Entity;
 
 import jakarta.persistence.*;
 import java.time.Instant;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "users")
 public class User {

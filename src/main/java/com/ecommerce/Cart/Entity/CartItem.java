@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import com.ecommerce.Product.Entity.Product;
 
 import java.math.BigDecimal;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "cart_items")
 public class CartItem {

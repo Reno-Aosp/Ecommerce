@@ -3,7 +3,9 @@ package com.ecommerce.Product.Entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "products")
 public class Product {

@@ -1,7 +1,9 @@
 package com.ecommerce.Product.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "categories")
 public class Category {

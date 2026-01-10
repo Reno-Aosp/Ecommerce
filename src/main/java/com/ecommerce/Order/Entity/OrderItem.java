@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import com.ecommerce.Product.Entity.Product;
 
 import java.math.BigDecimal;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "order_items")
 public class OrderItem {
