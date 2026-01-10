@@ -100,7 +100,12 @@ public class CartServiceImpl implements CartService {
         User user = getCurrentUser(principal);
         Cart cart = getOrCreateCart(user);
 
-        Product product = productRepository.findById(request.productId())
+        Long productId = request.productId();
+        if (productId == null) {
+            throw new IllegalArgumentException("Product ID cannot be null");
+        }
+
+        Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
 
         CartItem item = cart.getItems().stream()
@@ -143,7 +148,9 @@ public class CartServiceImpl implements CartService {
 
         if (request.quantity() <= 0) {
             cart.getItems().remove(item);
-            cartItemRepository.delete(item);
+            if (item != null) {
+                cartItemRepository.delete(item);
+            }
         } else {
             item.setQuantity(request.quantity());
             item.setLineTotal(item.getUnitPrice()
@@ -162,6 +169,10 @@ public class CartServiceImpl implements CartService {
     }
 
     public CartDTO removeItem(Long productId, Principal principal) {
+        if (productId == null) {
+            throw new IllegalArgumentException("Product ID cannot be null");
+        }
+        
         User user = getCurrentUser(principal);
         Cart cart = getOrCreateCart(user);
 
